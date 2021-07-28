@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh 'mvn clean install'
             }
-            
+
              steps {
                 sh ('''mvn sonar:sonar \
 				-Dsonar.projectKey=bbva \
@@ -17,7 +17,7 @@ pipeline {
 				''')
             }
         }
-        }
+        
         stage('Front-end') {
             agent {
                 docker { image 'node:14-alpine' }
