@@ -6,7 +6,7 @@ pipeline {
                 docker { image 'maven:3.8.1-adoptopenjdk-11' }
             }
             steps {
-                sh 'mvn clean install'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Sonar') {
@@ -16,8 +16,8 @@ pipeline {
             steps {
                 sh ('''mvn sonar:sonar \
 				-Dsonar.projectKey=bbva \
-				-Dsonar.host.url=http://35.224.61.71:9000 \
-				-Dsonar.login=5e9d95f0071d41f0c0d213eb42133fdf1ece3f62
+				-Dsonar.host.url=http://192.168.39.113:9000 \
+				-Dsonar.login=da062c153d28f8a8336eb06ed0e30a6979d716af
 				''')
             }
         }
