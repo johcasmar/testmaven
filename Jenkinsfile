@@ -14,10 +14,9 @@ pipeline {
                 docker { image 'maven:3.8.1-adoptopenjdk-11' }
             } 
             steps {
-                sh ('''mvn sonar:sonar \
-				-Dsonar.projectKey=bbva \
-				-Dsonar.host.url=http://192.168.20.33:9000 \
-				-Dsonar.login=da062c153d28f8a8336eb06ed0e30a6979d716af
+                sh (''mvn sonar:sonar \
+			  -Dsonar.host.url=http://192.168.20.33:9000 \
+			  -Dsonar.login=16471f9e1ed8b54fde00dd776782fd5eaa66d4e6
 				''')
             }
         }
